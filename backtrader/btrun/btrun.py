@@ -107,6 +107,8 @@ def btrun(pargs=''):
             cerebro.replaydata(data, timeframe=tf, compression=cp)
         else:
             cerebro.adddata(data)
+            cerebro.resampledata(data)
+            cerebro.data[-1].plotinfo.plot=False
 
     # get and add signals
     signals = getobjects(args.signals, bt.Indicator, bt.signals, issignal=True)
